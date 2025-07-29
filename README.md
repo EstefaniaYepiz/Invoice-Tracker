@@ -19,7 +19,7 @@ A simple invoice management app built with **React** and **Firebase**. Create, e
 
 ## 🚀 Live Demo
 
-[View on Netlify](https://your-netlify-link.netlify.app)
+[View on Netlify](https://kiwi-invoice-tracker-app.netlify.app/)
 
 ## 📁 Folder Structure
 
