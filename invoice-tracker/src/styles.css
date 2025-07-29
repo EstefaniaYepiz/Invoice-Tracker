@@ -1,0 +1,134 @@
+/* Center page content */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background: #f4f4f4;
+	color: #333;
+	display: flex;
+	justify-content: center;
+}
+
+#root {
+	width: 100%;
+	max-width: 800px;
+	padding: 40px 20px;
+}
+
+/* Headings */
+h1,
+h2 {
+	text-align: center;
+	color: #222;
+}
+
+/* Invoice Card */
+.invoice-card {
+	background: #fff;
+	padding: 25px;
+	margin: 20px 0;
+	border-radius: 10px;
+	box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease;
+}
+
+.invoice-card:hover {
+	transform: scale(1.01);
+}
+
+/* Form & Buttons */
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+input,
+select,
+button {
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-size: 1rem;
+}
+
+button {
+	background-color: #007bff;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+	border: none;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
+.edit-link {
+	text-decoration: none;
+	color: #007bff;
+}
+.invoice-actions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+}
+/* Filter dropdown */
+select {
+	max-width: 200px;
+	margin: 0 auto 20px;
+	display: block;
+}
+/* Make invoice cards flexible */
+.invoice-card {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 768px) {
+	#root {
+		padding: 20px 10px;
+	}
+
+	.invoice-card {
+		padding: 18px;
+		margin: 12px 0;
+	}
+
+	form {
+		padding: 0 10px;
+	}
+
+	input,
+	select,
+	button {
+		font-size: 0.95rem;
+		padding: 10px;
+	}
+
+	h1,
+	h2 {
+		font-size: 1.4rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.invoice-card {
+		padding: 14px;
+	}
+
+	input,
+	select,
+	button {
+		font-size: 0.9rem;
+		padding: 8px;
+	}
+
+	h1,
+	h2 {
+		font-size: 1.2rem;
+	}
+}

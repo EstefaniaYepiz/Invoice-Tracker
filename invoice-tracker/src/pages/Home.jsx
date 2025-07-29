@@ -9,6 +9,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
+import InvoiceItem from "../components/InvoiceItem";
 
 export default function Home() {
 	const [invoices, setInvoices] = useState([]);
@@ -53,13 +54,11 @@ export default function Home() {
 				<p>No invoices yet</p>
 			) : (
 				filteredInvoices.map((invoice) => (
-					<div key={invoice.id}>
-						<h3>{invoice.client}</h3>
-						<p>Status: {invoice.status}</p>
-						<p>Due: {invoice.dueDate}</p>
-						<Link to={`/edit/${invoice.id}`}>Edit</Link>
-						<button onClick={() => handleDelete(invoice.id)}>Delete</button>
-					</div>
+					<InvoiceItem
+						key={invoice.id}
+						invoice={invoice}
+						onDelete={handleDelete}
+					/>
 				))
 			)}
 		</div>

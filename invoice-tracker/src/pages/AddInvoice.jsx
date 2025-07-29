@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import InvoiceForm from "../components/InvoiceForm";
 
 export default function AddInvoice() {
 	const [client, setClient] = useState("");
@@ -35,32 +36,22 @@ export default function AddInvoice() {
 	};
 
 	return (
-		<div>
+		<div className="invoice-form-container">
 			<h2>Add New Invoice</h2>
-			<form onSubmit={handleSubmit}>
-				<input
-					type="text"
-					placeholder="Client Name"
-					value={client}
-					onChange={(e) => setClient(e.target.value)}
+			<div>
+				<InvoiceForm
+					client={client}
+					setClient={setClient}
+					amount={amount}
+					setAmount={setAmount}
+					dueDate={dueDate}
+					setDueDate={setDueDate}
+					status={status}
+					setStatus={setStatus}
+					onSubmit={handleSubmit}
+					buttonText="Add Invoice"
 				/>
-				<input
-					type="number"
-					placeholder="Amount"
-					value={amount}
-					onChange={(e) => setAmount(e.target.value)}
-				/>
-				<input
-					type="date"
-					value={dueDate}
-					onChange={(e) => setDueDate(e.target.value)}
-				/>
-				<select value={status} onChange={(e) => setStatus(e.target.value)}>
-					<option value="unpaid">Unpaid</option>
-					<option value="paid">Paid</option>
-				</select>
-				<button type="submit">Add Invoice</button>
-			</form>
+			</div>
 		</div>
 	);
 }

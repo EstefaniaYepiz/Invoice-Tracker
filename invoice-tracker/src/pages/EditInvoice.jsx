@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useParams, useNavigate } from "react-router-dom";
+import InvoiceForm from "../components/InvoiceForm";
 
 export default function EditInvoice() {
 	const { id } = useParams();
@@ -46,28 +47,20 @@ export default function EditInvoice() {
 	return (
 		<div>
 			<h2>Edit Invoice</h2>
-			<form onSubmit={handleUpdate}>
-				<input
-					type="text"
-					value={client}
-					onChange={(e) => setClient(e.target.value)}
+			<div onSubmit={handleUpdate}>
+				<InvoiceForm
+					client={client}
+					setClient={setClient}
+					amount={amount}
+					setAmount={setAmount}
+					dueDate={dueDate}
+					setDueDate={setDueDate}
+					status={status}
+					setStatus={setStatus}
+					onSubmit={handleUpdate}
+					buttonText="Update Invoice"
 				/>
-				<input
-					type="number"
-					value={amount}
-					onChange={(e) => setAmount(e.target.value)}
-				/>
-				<input
-					type="date"
-					value={dueDate}
-					onChange={(e) => setDueDate(e.target.value)}
-				/>
-				<select value={status} onChange={(e) => setStatus(e.target.value)}>
-					<option value="unpaid">Unpaid</option>
-					<option value="paid">Paid</option>
-				</select>
-				<button type="submit">Update Invoice</button>
-			</form>
+			</div>
 		</div>
 	);
 }
